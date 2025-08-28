@@ -1,0 +1,19 @@
+!pip install langchain-openai
+from langchain_openai import ChatOpenAI
+import os
+import httpx
+client = httpx.Client(verify=False)
+# os.environ['HTTP_PROXY']="http://proxy.tcs.com:8080"
+# os.environ['HTTPS_PROXY']="http://proxy.tcs.com:8080"
+# os.environ['http_proxy']="http://proxy.tcs.com:8080"
+# os.environ['https_proxy']="http://proxy.tcs.com:8080"
+llm = ChatOpenAI(
+base_url="https://cin-genailab-maas-litellm-ca.victoriousground-d739afd7.centralindia.azurecontainerapps.io", # set 
+openai_api_base to the LiteLLM Proxy
+base_url="https://genailab.tcs.in"
+model = "azure_ai/genailab-maas-DeepSeek-V3-0324",
+api_key="sk-h4SzToxOqOneSAXq191PXA", Provided Key is for this purposes only and should not be used for any 
+unauthorized purposes
+http_client = client
+)
+llm.invoke("Hi")
